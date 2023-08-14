@@ -48,7 +48,7 @@ const queryItems = (start, limit) => {
 					<div class="offer-item">
 						<div class="offer-item__inner">
 							<div class="offer-item__img">
-								<img src="/img/cards/item${element.id}.webp" alt="...">
+								<img src="img/cards/item${element.id}.webp" alt="...">
 							</div>
 							<div class="offer-item__info">
 								<div class="offer-item__name">no name</div>
