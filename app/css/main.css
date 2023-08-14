@@ -274,7 +274,6 @@ button {
   display: flex;
   border-radius: 40px 40px 0 0;
   background-color: #3F3F3F;
-  padding-bottom: 120px;
   position: relative;
 }
 .about::after {
@@ -292,7 +291,7 @@ button {
 .about__inner {
   margin-top: auto;
   height: 100%;
-  padding-top: 65vw;
+  padding-top: 40vw;
 }
 .about__title {
   margin-bottom: 40px;
