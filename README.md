@@ -1,4 +1,4 @@
-# Gulp - сборка MaxGraph
+# Gulp4
 
 > Используется Gulp 4
 
