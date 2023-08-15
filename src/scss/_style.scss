@@ -67,7 +67,7 @@
 		padding: 30px auto 0;
 		text-align: center;
 	}
-	.more-btn {
+	&__more-btn {
 		&.disabled {
 			background-color: #dedede;
 			cursor: default;
