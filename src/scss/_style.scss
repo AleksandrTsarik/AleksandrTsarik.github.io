@@ -67,6 +67,12 @@
 		padding: 30px auto 0;
 		text-align: center;
 	}
+	.more-btn {
+		&.disabled {
+			background-color: #dedede;
+			cursor: default;
+		}
+	}
 }
 .offer-item {
 	flex: 0 0 20%;
