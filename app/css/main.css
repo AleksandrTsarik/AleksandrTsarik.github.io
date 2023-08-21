@@ -271,7 +271,7 @@ button {
 }
 
 .about {
-  background-image: url("/img/main-bg.webp");
+  background-image: url("img/main-bg.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
