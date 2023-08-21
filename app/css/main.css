@@ -822,6 +822,8 @@ button {
   50% {
     -webkit-transform: scale(1.2) skew(15deg);
     transform: scale(1.2) skew(15deg);
+    -webkit-filter: drop-shadow(0 0 10px rgba(194, 171, 129, 0.7));
+    filter: drop-shadow(0 0 10px rgba(194, 171, 129, 0.7));
   }
   100% {
     -webkit-transform: scale(1) skew(15deg);
@@ -837,6 +839,8 @@ button {
   50% {
     -webkit-transform: scale(1.2) skew(15deg);
     transform: scale(1.2) skew(15deg);
+    -webkit-filter: drop-shadow(0 0 10px rgba(194, 171, 129, 0.7));
+    filter: drop-shadow(0 0 10px rgba(194, 171, 129, 0.7));
   }
   100% {
     -webkit-transform: scale(1) skew(15deg);
