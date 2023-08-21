@@ -1,1 +1,110 @@
-(()=>{"use strict";const t=document.querySelector(".burger-menu"),e=document.querySelector(".header-strip__menu"),s=document.querySelector(".header-strip__menu-list"),o=document.querySelector(".header-strip__right");t.addEventListener("click",(function(){this.classList.toggle("close"),e.classList.toggle("overlay-menu"),s.classList.toggle("open-menu"),o.classList.toggle("open-menu"),document.body.classList.toggle("is-hidden")}));const r=document.querySelectorAll(".js-form"),n=document.querySelector(".modal"),i=n.querySelector(".overlay"),c=n.querySelector(".modal__close"),l=()=>{n.classList.add("is-open"),document.body.classList.add("is-hidden")},d=()=>{n.classList.remove("is-open"),document.body.classList.remove("is-hidden")};r.forEach((t=>{t.addEventListener("click",l)})),i.addEventListener("click",d),c.addEventListener("click",d);const a=document.querySelector(".offer__more-btn"),u=document.querySelector(".offer__list");a.addEventListener("click",(function(){const t=u.querySelectorAll(".offer-item");var e;30!==t.length&&(25===t.length&&this.classList.add("disabled"),e=t.length,fetch(`https://jsonplaceholder.typicode.com/posts?_start=${e}&_limit=5`).then((t=>t.json())).then((t=>{t.forEach((t=>{u.insertAdjacentHTML("beforeend",`\n\t\t\t\t\t<div class="offer-item">\n\t\t\t\t\t\t<div class="offer-item__inner">\n\t\t\t\t\t\t\t<div class="offer-item__img">\n\t\t\t\t\t\t\t\t<img src="img/cards/item${t.id}.webp" alt="...">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class="offer-item__info">\n\t\t\t\t\t\t\t\t<div class="offer-item__name">no name</div>\n\t\t\t\t\t\t\t\t<div class="offer-item__title">${t.title}</div>\n\t\t\t\t\t\t\t\t<div class="offer-item__text">${t.body}</div>\n\t\t\t\t\t\t\t\t<div class="offer-item__post">Posted by<strong> Eugenia,</strong> on July  24, 2019</div>\n\t\t\t\t\t\t\t\t<div class="offer-item__btn">\n\t\t\t\t\t\t\t\t\t<button>Continue reading</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t`)}))})))}));const m=document.querySelector(".modal-form form"),f=m.querySelectorAll("input");m.addEventListener("submit",(function(t){t.preventDefault();let e=!0,s=this,o=s.querySelector(".js-mail"),r=s.querySelector(".js-phone");if(s.querySelectorAll("input").forEach((t=>{t.value||(t.classList.add("field-error"),e=!1)})),o.value.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/)<0&&(o.classList.add("field-error"),e=!1),r.value.search(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/)<0&&(r.classList.add("field-error"),e=!1),!e)return!1;s.reset()})),f.forEach((t=>{t.addEventListener("focus",(function(){t.classList.remove("field-error")}))}));let v=document.querySelector(".js-phone");new IMask(v,{mask:"+{7}(000)000-00-00"})})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+var __webpack_exports__ = {};
+/*!************************!*\
+  !*** ./src/js/main.js ***!
+  \************************/
+
+
+const burgerMenu = document.querySelector('.burger-menu');
+const overlay = document.querySelector('.header-strip__menu');
+const openMenu = document.querySelector('.header-strip__menu-list');
+const menuPhone = document.querySelector('.header-strip__right');
+burgerMenu.addEventListener('click', function () {
+  this.classList.toggle('close');
+  overlay.classList.toggle('overlay-menu');
+  openMenu.classList.toggle('open-menu');
+  menuPhone.classList.toggle('open-menu');
+  document.body.classList.toggle('is-hidden');
+});
+const btnsModal = document.querySelectorAll('.js-form');
+const modal = document.querySelector('.modal');
+const modalOverlay = modal.querySelector('.overlay');
+const btnCloseModal = modal.querySelector('.modal__close');
+const openModal = () => {
+  modal.classList.add('is-open');
+  document.body.classList.add('is-hidden');
+};
+const closeModal = () => {
+  modal.classList.remove('is-open');
+  document.body.classList.remove('is-hidden');
+};
+btnsModal.forEach(element => {
+  element.addEventListener('click', openModal);
+});
+modalOverlay.addEventListener('click', closeModal);
+btnCloseModal.addEventListener('click', closeModal);
+const btnMore = document.querySelector('.offer__more-btn');
+const itemsWrap = document.querySelector('.offer__list');
+const queryItems = (start, limit) => {
+  fetch(`https://jsonplaceholder.typicode.com/posts?_start=${start}&_limit=${limit}`).then(response => response.json()).then(data => {
+    data.forEach(element => {
+      itemsWrap.insertAdjacentHTML('beforeend', `
+					<div class="offer-item">
+						<div class="offer-item__inner">
+							<div class="offer-item__img">
+								<img src="img/cards/item${element.id}.webp" alt="...">
+							</div>
+							<div class="offer-item__info">
+								<div class="offer-item__name">no name</div>
+								<div class="offer-item__title">${element.title}</div>
+								<div class="offer-item__text">${element.body}</div>
+								<div class="offer-item__post">Posted by<strong> Eugenia,</strong> on July  24, 2019</div>
+								<div class="offer-item__btn">
+									<button>Continue reading</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				`);
+    });
+  });
+};
+btnMore.addEventListener('click', function () {
+  const items = itemsWrap.querySelectorAll('.offer-item');
+  let btn = this;
+  if (items.length === 30) return;
+  if (items.length === 25) btn.classList.add('disabled');
+  queryItems(items.length, 5);
+});
+const form = document.querySelector('.modal-form form');
+const inputs = form.querySelectorAll('input');
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  let submit = true;
+  let form = this;
+  let mail = form.querySelector('.js-mail');
+  let phone = form.querySelector('.js-phone');
+  form.querySelectorAll('input').forEach(element => {
+    if (!element.value) {
+      element.classList.add('field-error');
+      submit = false;
+    }
+  });
+  if (mail.value.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) < 0) {
+    mail.classList.add('field-error');
+    submit = false;
+  }
+  if (phone.value.search(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/) < 0) {
+    phone.classList.add('field-error');
+    submit = false;
+  }
+  if (!submit) return false;
+
+  //--обработчик формы
+  form.reset();
+});
+inputs.forEach(element => {
+  element.addEventListener('focus', function () {
+    element.classList.remove('field-error');
+  });
+});
+
+//--маска
+let phoneInput = document.querySelector(".js-phone");
+const phoneMask = new IMask(phoneInput, {
+  mask: "+{7}(000)000-00-00"
+});
+/******/ })()
+;
+//# sourceMappingURL=main.js.map
